@@ -149,7 +149,7 @@ else:
     print("Error:", response.status_code)
 
 # Replace 'YOUR_API_KEY' with your actual API key from OpenWeatherMap
-api_key = '50248ae2f8f46469417519997a737c9a'
+api_key = ''
 
 # The city is the destination of travelmyth
 city = 'params=params.destination'
