@@ -1,0 +1,32 @@
+{
+    "1": {
+        "name": "Amalfi",
+        "latitude": "40.6325723891",
+        "longitude": "14.5952696307",
+        "type": "region",
+        "country_code": "IT",
+        "country_name": "Italy",
+        "number_of_hotels": "553",
+        "url": "https:\/\/www.travelmyth.com\/enter.php?item_type=region&item_id=139705&collections=39"
+    },
+    "2": {
+        "name": "Amalfi",
+        "latitude": "40.63271",
+        "longitude": "14.59569",
+        "type": "destination",
+        "country_code": "IT",
+        "country_name": "Italy",
+        "number_of_hotels": "553",
+        "url": "https:\/\/www.travelmyth.com\/enter.php?item_type=destination&item_id=8410&collections=39"
+    },
+    "3": {
+        "name": "Amalfi",
+        "latitude": "6.8492140000",
+        "longitude": "-75.0922850000",
+        "type": "region",
+        "country_code": "CO",
+        "country_name": "Colombia",
+        "number_of_hotels": "1",
+        "url": "https:\/\/www.travelmyth.com\/enter.php?item_type=region&item_id=42122&collections=39"
+    }
+}

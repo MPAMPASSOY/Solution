@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Travel Agency</h1>
+        <div id="filters">
+            <label for="destination">Destination:</label>
+            <select id="destination">
+                <option value="all">All</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia">Asia</option>
+                <option value="North America">North America</option>
+                <!-- Add more destinations as needed -->
+            </select>
+
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="all">All</option>
+                <option value="English">English</option>
+                <option value="Spanish">Spanish</option>
+                <option value="French">French</option>
+                <!-- Add more languages as needed -->
+            </select>
+
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="all">All</option>
+                <option value="beach">Beach</option>
+                <option value="mountain">Mountain</option>
+                <option value="historic">Historic</option>
+                <!-- Add more categories as needed -->
+            </select>
+
+            <label for="weather">Weather:</label>
+            <select id="weather">
+                <option value="all">All</option>
+                <option value="sunny">Sunny</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+                <!-- Add more weather types as needed -->
+            </select>
+        </div>
+        <div id="chat-widget">
+            <select id="region" onchange="updateCountries(this.value)">
+                <option value="all">All</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia">Asia</option>
+            </select>
+            <select id="country" style="display: none;"></select>
+        </div>
+    </header>
+    <main id="travel-packages">
+        <!-- Package 1 -->
+        <div class="card" data-destination="Europe" data-language="English" data-category="beach" data-weather="sunny">
+            <h2>French Riviera</h2>
+            <p>Enjoy the sunny beaches and vibrant nightlife.</p>
+        </div>
+        <!-- Package 2 -->
+        <div class="card" data-destination="Europe" data-language="French" data-category="historic" data-weather="cloudy">
+            <h2>Paris City Tour</h2>
+            <p>Explore the historical landmarks and museums of Paris.</p>
+        </div>
+        <!-- Package 3 -->
+        <div class="card" data-destination="Asia" data-language="Japanese" data-category="mountain" data-weather="sunny">
+            <h2>Fuji Mountain Climb</h2>
+            <p>Experience the challenging and scenic routes of Mount Fuji.</p>
+        </div>
+        <!-- Package 4 -->
+        <div class="card" data-destination="North America" data-language="English" data-category="nightlife" data-weather="rainy">
+            <h2>New York Nightlife</h2>
+            <p>Discover the bustling nightlife and world-class entertainment of New York City.</p>
+        </div>
+        <!-- Package 5 -->
+        <div class="card" data-destination="North America" data-language="Spanish" data-category="eco_friendly" data-weather="sunny">
+            <h2>California Eco Retreat</h2>
+            <p>Relax and rejuvenate at an eco-friendly resort in the heart of California.</p>
+        </div>
+        <!-- Add more packages as needed -->
+    </main>
+
+    <div class="container mt-5">
+        <h1 style="color:white">Chat Bot</h1>
+        <div class="chat-box mt-3">
+            <!-- Chat messages will be added here dynamically -->
+        </div>
+        <div class="form-group mt-3">
+            <textarea class="form-control" rows="3" placeholder="Type your message here" id="message-input"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="send-btn">Send</button>
+    </div>
+    <script>
+        const data = {
+            "1": {
+                "name": "Amalfi",
+                "latitude": "40.6325723891",
+                "longitude": "14.5952696307",
+                "type": "region",
+                "country_code": "IT",
+                "country_name": "Italy",
+                "number_of_hotels": "553",
+                "url": "https:\/\/www.travelmyth.com\/enter.php?item_type=region&item_id=139705&collections=39"
+            },
+            "2": {
+                "name": "Amalfi",
+                "latitude": "40.63271",
+                "longitude": "14.59569",
+                "type": "destination",
+                "country_code": "IT",
+                "country_name": "Italy",
+                "number_of_hotels": "553",
+                "url": "https:\/\/www.travelmyth.com\/enter.php?item_type=destination&item_id=8410&collections=39"
+            },
+            "3": {
+                "name": "Amalfi",
+                "latitude": "6.8492140000",
+                "longitude": "-75.0922850000",
+                "type": "region",
+                "country_code": "CO",
+                "country_name": "Colombia",
+                "number_of_hotels": "1",
+                "url": "https:\/\/www.travelmyth.com\/enter.php?item_type=region&item_id=42122&collections=39"
+            }
+        };
+
+        const countrySelect = document.getElementById('country');
+
+        // Loop through the data and create <option> elements
+        for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+                const option = document.createElement('option');
+                option.value = data[key].country_name;
+                option.textContent = data[key].country_name;
+                countrySelect.appendChild(option);
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
