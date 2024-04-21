@@ -235,3 +235,44 @@ else:
 # tha traviksoyme ta dedomena apo ta weather api's.Tha paroyme kai ta dedomena apo to site toy travelmyth.Tha
 # prosthesoyme cookies  gia na ginei kalytera h taksinomisi tha orisoyme kai mia eksarthmenes pithanotites gia
 # kapoies drasthriotites
+
+
+# Function to retrieve weather data from a weather API
+def get_weather(location):
+    # Make a request to the weather API
+    response = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={location}&appid=YOUR_API_KEY')
+
+    # Parse the response JSON
+    weather_data = response.json()
+
+    # Extract relevant weather information
+    temperature = weather_data['main']['temp']
+    description = weather_data['weather'][0]['description']
+
+    return temperature, description
+
+
+# Function to query ChatGPT API
+def query_chatgpt(prompt):
+    # Send a prompt to the ChatGPT API
+    response = requests.post(
+        'https://api.openai.com/v1/completions',
+        headers={'Authorization': 'Bearer YOUR_API_KEY'},
+        json={'model': 'text-davinci-002', 'prompt': prompt, 'max_tokens': 50}
+    )
+
+    # Parse the response JSON
+    chatgpt_response = response.json()
+
+    # Extract the generated text from the response
+    generated_text = chatgpt_response['choices'][0]['text'].strip()
+
+    return generated_text
+
+
+# Example usage
+location = 'New York'  # Example location
+temperature, description = get_weather(location)
+prompt = f"I'm planning a skiing trip in {location} tomorrow. The weather forecast is {description} with a temperature of {temperature}°C. Is it a good idea?"
+response = query_chatgpt(prompt)
+print("ChatGPT's response:", response)
